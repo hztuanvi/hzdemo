@@ -13,8 +13,8 @@ import lombok.Data;
  * @author OS
  *
  */
-@Entity
-@Table
+@Entity(name = "student")
+@Table(name = "student")
 @Data
 public class Student {
 

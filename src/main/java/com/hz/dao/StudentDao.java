@@ -64,7 +64,7 @@ public class StudentDao implements BaseDao<Student> {
 	@Override
 	public List<Student> getList() {
 		Session session = sessionFactory.openSession();
-		Query<Student> query = session.createQuery("from Student", Student.class);
+		Query<Student> query = session.createQuery("from student", Student.class);
 		return query.getResultList();
 	}
 
