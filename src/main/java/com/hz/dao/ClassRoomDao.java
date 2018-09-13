@@ -61,7 +61,7 @@ public class ClassRoomDao implements BaseDao<ClassRoom> {
 	@Override
 	public List<ClassRoom> getList() {
 		Session session = sessionFactory.openSession();
-		Query<ClassRoom> query = session.createQuery("from ClassRoom", ClassRoom.class);
+		Query<ClassRoom> query = session.createQuery("from classroom", ClassRoom.class);
 		return query.getResultList();
 	}
 
