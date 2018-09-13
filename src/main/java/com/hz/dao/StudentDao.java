@@ -41,8 +41,11 @@ public class StudentDao implements BaseDao<Student> {
 	 */
 	@Override
 	public boolean update(Student t) {
-		// TODO Auto-generated method stub
-		return true;
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		session.update(t);
+		session.getTransaction().commit();
+		return t.getId() > 0;
 	}
 
 	/*
@@ -52,7 +55,10 @@ public class StudentDao implements BaseDao<Student> {
 	 */
 	@Override
 	public boolean delete(int id) {
-		// TODO Auto-generated method stub
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		session.delete(getById(id));
+		session.getTransaction().commit();
 		return true;
 	}
 
@@ -64,7 +70,7 @@ public class StudentDao implements BaseDao<Student> {
 	@Override
 	public List<Student> getList() {
 		Session session = sessionFactory.openSession();
-		Query<Student> query = session.createQuery("from Student", Student.class);
+		Query<Student> query = session.createQuery("from student", Student.class);
 		return query.getResultList();
 	}
 
@@ -75,8 +81,8 @@ public class StudentDao implements BaseDao<Student> {
 	 */
 	@Override
 	public Student getById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = sessionFactory.openSession();
+		return session.get(Student.class, id);
 	}
 
 }

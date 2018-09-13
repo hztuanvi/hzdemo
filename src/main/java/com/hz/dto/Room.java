@@ -10,8 +10,8 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
-@Entity
-@Table
+@Entity(name = "room")
+@Table(name = "room")
 @Data
 public class Room {
 

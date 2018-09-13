@@ -35,8 +35,7 @@ public class StudentService implements BaseService<Student> {
 	 */
 	@Override
 	public boolean update(Student t) {
-		// TODO Auto-generated method stub
-		return false;
+		return studentDao.update(t);
 	}
 
 	/*
@@ -46,8 +45,7 @@ public class StudentService implements BaseService<Student> {
 	 */
 	@Override
 	public boolean delete(int id) {
-		// TODO Auto-generated method stub
-		return false;
+		return studentDao.delete(id);
 	}
 
 	/*
@@ -69,7 +67,7 @@ public class StudentService implements BaseService<Student> {
 	@Override
 	public Student getById(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return studentDao.getById(id);
 	}
 
 }
