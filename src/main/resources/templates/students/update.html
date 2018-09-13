@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)http://www.w3schools.com/w3css/tryw3css_templates_teal.htm -->
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{common/layouts/main}">
+<head>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="w3-row-padding" >
+	    	<div th:replace="students/sidebar :: sidebar"></div>
+	        <div class="w3-col l9">
+	            <div class="w3-card-2 w3-padding">
+	                <h4 class="title">Cập nhật người ở</h4>
+	                <form class="w3-container form-input" method="post" th:action="@{/student/doUpdate}" th:object="${studentForm}">
+	                	<input type="hidden" th:field="*{id}">
+					    <p>
+					    	<label class="w3-label w3-text-teal"><b>Tên sinh viên</b>
+						    </label>
+						    <input class="w3-input w3-border w3-border-teal" th:classappend="${#fields.hasErrors('name')} ? is-error : ''" type="text" th:field="*{name}" maxlength="50">
+						    <label class="lbl-error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></label>
+						</p>
+						<p>
+					    	<label class="w3-label w3-text-teal"><b>Giới tính</b>
+						    </label>
+						    <input class="w3-radio" type="radio" value="1" th:field="*{gender}">
+							<label>Male</label>
+							
+							<input class="w3-radio" type="radio" value="0" th:field="*{gender}">
+							<label>Female</label>
+							<label class="lbl-error" th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></label>
+						</p>
+						<p>
+					    	<label class="w3-label w3-text-teal"><b>Lớp</b>
+						    </label>
+						    <select class="w3-select w3-input w3-text-teal" th:classappend="${#fields.hasErrors('classRoomId')} ? is-error : ''"  th:field="*{classRoomId}">
+							  <option value="" selected >Chọn Lớp</option>
+							  <option th:each="classRoom : ${classRoomList}" th:text="${classRoom.name}" th:value="${classRoom.id}"></option>
+							</select>
+							<label class="lbl-error" th:if="${#fields.hasErrors('classRoomId')}" th:errors="*{classRoomId}"></label>
+						</p>
+						<p>
+					    	<label class="w3-label w3-text-teal"><b>Số điện thoại</b>
+						    </label>
+						    <input class="w3-input w3-border w3-border-teal" th:classappend="${#fields.hasErrors('phoneNumber')} ? is-error : ''" type="text" th:field="*{phoneNumber}" maxlength="11">
+						    <label class="lbl-error" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></label>
+						</p>
+						<p>
+					    	<label class="w3-label w3-text-teal"><b>Phòng</b>
+						    </label>
+						    <select class="w3-select w3-input w3-text-teal" th:classappend="${#fields.hasErrors('roomId')} ? is-error : ''"  th:field="*{roomId}">
+							  <option value="" selected >Chọn Phòng</option>
+							  <option th:each="room : ${roomList}" th:text="${room.name}" th:value="${room.id}"></option>
+							</select>
+							<label class="lbl-error" th:if="${#fields.hasErrors('roomId')}" th:errors="*{roomId}"></label>
+						</p>
+					    <button type="submit" class="w3-btn w3-teal">Cập nhật</button>
+					</form>
+	            </div>
+	        </div>
+    	</div>
+	</div>
+</body>
+</html>

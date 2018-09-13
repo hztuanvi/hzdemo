@@ -11,7 +11,7 @@ import com.hz.validator.PhoneNumberCheck;
  */
 public class PhoneNumberCheckValidator implements ConstraintValidator<PhoneNumberCheck, String> {
 
-	private static final String PATTERN_PHONE_NUMER = "(0)\\\\d{9,10}";
+	private static final String PATTERN_PHONE_NUMER = "(0)\\d{9,10}";
 
 	/*
 	 * (non-Javadoc)
