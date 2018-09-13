@@ -1,6 +1,7 @@
 package com.hz.form;
 
 import com.hz.validator.MaxlengthCheck;
+import com.hz.validator.PhoneNumberCheck;
 import com.hz.validator.RequiredCheck;
 
 import lombok.Data;
@@ -28,7 +29,7 @@ public class StudentForm {
 	private boolean gender;
 
 	@RequiredCheck
-	@MaxlengthCheck(value = 11)
+	@PhoneNumberCheck
 	private String phoneNumber;
 
 }

@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hz.dto.Student;
 import com.hz.form.StudentForm;
@@ -44,7 +45,7 @@ public class StudentController {
 	}
 
 	@RequestMapping("/input")
-	public String input(Model model) {
+	public String showInput(Model model) {
 		model.addAttribute("studentForm", new StudentForm());
 		init(model);
 		return "students/input";
@@ -64,5 +65,29 @@ public class StudentController {
 	private void init(Model model) {
 		model.addAttribute("classRoomList", classRoomService.getList());
 		model.addAttribute("roomList", roomService.getList());
+	}
+
+	@RequestMapping("/update")
+	public String showUpdate(@RequestParam int id, Model model) {
+		model.addAttribute("studentForm", studentService.getById(id));
+		init(model);
+		return "students/update";
+	}
+
+	@RequestMapping(value = "/doUpdate", method = RequestMethod.POST)
+	public String doUpdate(@Valid StudentForm studentForm, BindingResult result, Model model) {
+		if (result.hasErrors()) {
+			init(model);
+			return "students/update";
+		}
+		Student student = modelMapper.map(studentForm, Student.class);
+		studentService.update(student);
+		return "redirect:/student";
+	}
+
+	@RequestMapping("/delete")
+	public String doDelete(@RequestParam int id) {
+		studentService.delete(id);
+		return "redirect:/student";
 	}
 }

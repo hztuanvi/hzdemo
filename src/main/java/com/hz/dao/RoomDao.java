@@ -19,7 +19,7 @@ public class RoomDao implements BaseDao<Room> {
 	@Override
 	public List<Room> getList() {
 		Session session = sessionFactory.openSession();
-		Query<Room> query = session.createQuery("from Room", Room.class);
+		Query<Room> query = session.createQuery("from room", Room.class);
 		return query.getResultList();
 	}
 
