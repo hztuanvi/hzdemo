@@ -20,39 +20,26 @@ public class StudentDao implements BaseDao<Student> {
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.hz.dao.BaseDao#insert(java.lang.Object)
-	 */
 	@Override
 	public boolean insert(Student t) {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		session.save(t);
 		session.getTransaction().commit();
+		session.close();
 		return t.getId() > 0;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.hz.dao.BaseDao#update(java.lang.Object)
-	 */
 	@Override
 	public boolean update(Student t) {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		session.update(t);
 		session.getTransaction().commit();
+		session.close();
 		return t.getId() > 0;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.hz.dao.BaseDao#delete(int)
-	 */
 	@Override
 	public boolean delete(int id) {
 		Session session = sessionFactory.openSession();
@@ -60,6 +47,20 @@ public class StudentDao implements BaseDao<Student> {
 		session.delete(getById(id));
 		session.getTransaction().commit();
 		return true;
+	}
+
+	public List<Student> getList(int page, int maxRecords) {
+		Session session = sessionFactory.openSession();
+		Query<Student> query = session.createQuery("from student", Student.class);
+		// query.setMaxResults(maxRecords);
+		// query.setFirstResult(page);
+		return query.getResultList();
+	}
+
+	@Override
+	public Student getById(int id) {
+		Session session = sessionFactory.openSession();
+		return session.get(Student.class, id);
 	}
 
 	/*
@@ -72,17 +73,6 @@ public class StudentDao implements BaseDao<Student> {
 		Session session = sessionFactory.openSession();
 		Query<Student> query = session.createQuery("from student", Student.class);
 		return query.getResultList();
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.hz.dao.BaseDao#getById(int)
-	 */
-	@Override
-	public Student getById(int id) {
-		Session session = sessionFactory.openSession();
-		return session.get(Student.class, id);
 	}
 
 }

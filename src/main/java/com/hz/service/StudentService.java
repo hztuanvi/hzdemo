@@ -48,11 +48,11 @@ public class StudentService implements BaseService<Student> {
 		return studentDao.delete(id);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.hz.service.BaseService#getList()
-	 */
+	public List<Student> getList(int page, int maxRecords) {
+		// TODO Auto-generated method stub
+		return studentDao.getList(page, maxRecords);
+	}
+
 	@Override
 	public List<Student> getList() {
 		// TODO Auto-generated method stub

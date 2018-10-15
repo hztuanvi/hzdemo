@@ -1,109 +1,329 @@
-/*=============== Common ================*/
+*{
+    margin: 0;
+    padding: 0;
+}
 
-.title{
-	color:#009688;
-	font-weight: bold;
+html {
+	height: 100%;
+}
+
+body {
+	position: relative;
+	height: auto;
+	min-height: 100% !important;
+	padding-bottom: 110px;
+}
+
+a {
+    color: #59c4c5;
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.wrapper{
+    width: 70%;
+    height: 100%;
+    background: #fff;
+    margin: 0 auto;
+    position: relative;
+}
+
+.header{
+    width: 100%;
+    height: 100px;
+    background: #ccc;
+    padding-top:10px;
+    position: relative;
+}
+
+.header .title{
+    text-align: center;
+}
+
+.nav{
+    width:100%;
+    position: absolute;
+    bottom: 0;
+}
+.nav .menu{
+    list-style-type: none;
+}
+.nav .menu li{
+    float: left;
+    margin-right: 25px;
+}
+
+.nav .menu li.menu-active a{
+    background: #00c8f8;
+    border-bottom: 3px solid #ff4c65; 
+}
+
+.nav .menu li a{
+    text-decoration: none;
+    color: blue;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background: #59c4c5;
+    padding: 10px;
+    text-align:center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    border-bottom: 3px solid #fff;
+}
+
+.nav .menu li a:hover{
+    background: #00c8f8;
+    border-bottom: 3px solid red;
 }
 
 .content{
-	margin-top:80px;
+	padding: 10px 0;
 }
 
-.box-list{
-	height: 160px;
-	position: relative;
-	overflow: hidden;
+.content .main-content {
+    padding-top: 10px;
 }
 
-.box-list .box-list-action{
-	position: absolute;
-	margin:0 auto;
-	margin-left: auto;
-	margin-right: auto;
-	left: 0;
+.content .main-content .page-title {
+    background: #59c4c5;
+    border-left: 5px solid #ff4c65;
+    padding-left: 5px;
+    padding-right: 10px;
+    display: inline-block;
+    color: #fff;
+}
+
+.content .main-content .page-content {
+    margin-top: 20px;
+    padding-left: 30px;
+}
+
+.content .main-content .tbl {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.content .main-content .tbl th {
+    background: #59c4c5;
+}
+
+.content .main-content .tbl tr:nth-child(even) {
+    background: #fff;
+}
+
+.content .main-content .tbl tr:nth-child(odd) {
+    background: #fff3dd;
+}
+
+.content .main-content .tbl th
+,.content .main-content .tbl td {
+    border-bottom: 1px solid;
+    padding: 10px;
+    text-align: center;
+}
+
+.content .main-content .tbl td.cl-action {
+    width: 150px;
+}
+
+.footer{
+    width: 70%;
+    height: 100px;
+    background: #000;
+    padding-top: 10px;
+    position: absolute;
 	right: 0;
-	top:-20px;
-	-webkit-transition: all  0.3s;
-    -moz-transition: all  0.3s;
-    -ms-transition: all  0.3s;
-    -o-transition: all  0.3s;
-    transition: all  0.3s;
+	bottom: 0;
+	left: 0;
+	margin: 0 auto;
 }
 
-.box-list:hover .box-list-action{
-	top:0px;
+.footer .copyright {
+    color: #fff;
+    padding-left:10px;
 }
 
-.box-list .w3-card i{
-	color:#009688;
-	font-size: 80px;
+.footer .title {
+    text-align: center;
+    color: #fff;
 }
 
-.btn-action a{
-	min-width: 150px;
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
 }
 
-.box-list-card{
-	border-left: 5px solid #009688;
-	border-top: 1px solid #009688;
-	border-right: 1px solid #009688;
-	border-bottom: 1px solid #009688;
+.cf:after {
+    clear: both;
 }
 
-/*=============== Home page ================*/
-.home-title{
-	font-size: 25px;
-	font-weight: bold;
-	color: #009688;
+/*===== Pagination ====*/
+.pagination-number-record {
+    margin-top: 10px;
 }
 
-.home-menu{
-	min-height:300px;
+.pagination-number-record .form-control {
+    max-width: 45px;
+    font-size: 15px;
+    padding: 2px;
 }
 
-.home-menu i{
- 	font-size: 120px;
- 	color:#009688;
- 	cursor: pointer;
- 	-webkit-transition: all  0.3s;
-    -moz-transition: all  0.3s;
-    -ms-transition: all  0.3s;
-    -o-transition: all  0.3s;
-    transition: all  0.3s;
+.pagination-number-record label {
+    font-weight: bold;
 }
 
-.home-menu > i:hover{
- 	font-size: 150px;
- 	color:#ff5722;
+.pagination {
+    text-align: right;
+    margin-top: 10px;
 }
 
-/*============== Payment =============*/
-.payment-room-title{
-	color:#009688;
-	font-weight: bold;
-	width: 50%;
-}
-.payment-room-master{
-	width: 50%;
-	text-align: right;
-	color:#009688;
-	font-weight: bold;
+.pagination .pagination-active {
+    padding: 2px 8px;
 }
 
-/*============= Input data ================*/
+/*==== Form Input====*/
+.form {
+    width: 80%;
+}
 
-.form-input input
-,.form-input select {
-	width: 50%;
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.form-label {
+    width: 20%;
+    float: left;
+}
+
+.form-label label{
+    font-weight: bold;
+}
+
+.form-input {
+    width: 68%;
+    float: right;
+    text-align: left;
+}
+
+.form-control {
+    width: 90%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #58c3c5;
+    font-size: 15px;
+    color: #59c4c5;
+    font-weight: bold;
+    box-sizing:border-box;
+}
+
+/* Style for radio button */
+/* The container */
+.container {
+    display: inline-block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
 }
 
 .is-error {
-	border: 1px solid red !important;
+    border: 1px solid #ff4c65;
 }
 
-label.lbl-error {
-	margin-top: 5px;
-	margin-bottom: 0;
-	color: red;
+.lbl-error {
+    color: #ff4c65;
+    display: inline-block;
+    margin-top: 2px;
 }
 
+/*==== Modal ====*/
+.overlay {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.5;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    background: #59c4c5;
+    color: #fff;
+}
+
+.modal-confirm {
+    width: 300px;
+    padding: 10px;
+    height: fit-content;
+}

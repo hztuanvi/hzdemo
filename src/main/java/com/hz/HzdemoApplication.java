@@ -22,6 +22,8 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
+import com.hz.dialects.CustomDialect;
+
 @SpringBootApplication
 @EnableAutoConfiguration(exclude = { //
 		DataSourceAutoConfiguration.class, //
@@ -106,5 +108,10 @@ public class HzdemoApplication {
 		LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();
 		bean.setValidationMessageSource(messageSource());
 		return bean;
+	}
+
+	@Bean
+	public CustomDialect customDialect() {
+		return new CustomDialect();
 	}
 }
