@@ -1,0 +1,51 @@
+.btn {
+    text-decoration: none;
+    border: 1px solid #3bc3c5;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    color: #fff;
+    background: #59c4c5;
+}
+
+.btn:hover {
+    background: #1dc2c5
+}
+
+.btn-sm {
+    padding: 2px 8px;
+}
+
+.btn-lg {
+    padding: 5px 10px;
+}
+
+.btn-primary {
+    background: #59c4c5;
+}
+
+.btn-second {
+    background: #f5d69c;
+    border: 1px solid #fbd48e;
+}
+.btn-second:hover {
+    background: #fbd48e;
+}
+
+.btn-third {
+    background: #ffc33c;
+    border: 1px solid #d89b12;
+}
+
+.btn-third:hover {
+    background: #d89b12;
+}
+
+.btn-fourth {
+    background: #ff4c65;
+    border: 1px solid #ff2544;
+}
+
+.btn-fourth:hover {
+    background: #ff2544;
+}

@@ -4,6 +4,7 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 import com.hz.validator.PhoneNumberCheck;
+import com.mysql.jdbc.StringUtils;
 
 /**
  * @author OS
@@ -23,7 +24,10 @@ public class PhoneNumberCheckValidator implements ConstraintValidator<PhoneNumbe
 	public boolean isValid(String value, ConstraintValidatorContext context) {
 		// TODO Auto-generated method stub
 
-		return value.matches(PATTERN_PHONE_NUMER);
+		if (!StringUtils.isNullOrEmpty(value)) {
+			return value.matches(PATTERN_PHONE_NUMER);
+		}
+		return true;
 	}
 
 }

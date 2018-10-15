@@ -3,25 +3,18 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Spring demo</title>
+    <title>Quản lý ký túc xá</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" th:href="@{/css/w3-theme-teal.css}">
-    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
-    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
-    <link rel="stylesheet" th:href="@{/css/dataTables.bootstrap4.min.css}">
-    <link rel="stylesheet" th:href="@{/css/w3.css}">
-	
 	<link rel="stylesheet" th:href="@{/css/style.css}">
-	<link rel="stylesheet" th:href="@{/css/modal.css}">
+	<link rel="stylesheet" th:href="@{/css/button.css}">
 </head>
 <body>
-	<div th:replace="common/fragments/header :: header"></div>
-    <div class="w3-row-padding content" layout:fragment="content"></div>
+	<div class="wrapper">
+		<div th:replace="common/fragments/header :: header"></div>
+		<div class="content" layout:fragment="content"></div>
+	</div>
 	<div th:replace="common/fragments/footer :: footer"></div>
-	
-    <script th:src="@{/js/jquery-1.11.3.min.js}"></script>
-    <script th:src="@{/js/jquery.dataTables.min.js}"></script>
-	<script th:src="@{/js/dataTables.bootstrap4.min.js}"></script>
+	<script th:src="@{/js/jquery-1.11.3.min.js}"></script>
     <script th:src="@{/js/main.js}"></script>
     <script th:src="@{/js/modal.js}"></script>
 </body>
